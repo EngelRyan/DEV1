@@ -7,7 +7,7 @@ from strava.enumerations.tipo_equipamento import TipoEquipamento
 class Equipamento(BaseModel):
     nome = models.CharField(max_length=50)
     marca = models.CharField(max_length=50)
-    modelo_string_2_50 = models.CharField(max_length=50)
+    modelo= models.CharField(max_length=50)
     apelido = models.CharField(max_length=50, blank=True, null=True)
     tipo_equipamento = models.CharField(max_length=20, choices=TipoEquipamento)
 
