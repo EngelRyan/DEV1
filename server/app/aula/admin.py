@@ -1,13 +1,10 @@
 from django.contrib import admin
-from .models.person import *
-from .models.passport import *
-from .models.reporter import *
-from .models.article import *
-from .models.magazine import *
+from aula.models import Person, Passport, Reporter, Article, Magazine, MagazineArticle
 
-
+# Register your models here.
 admin.site.register(Person)
 admin.site.register(Passport)
 admin.site.register(Reporter)
 admin.site.register(Article)
 admin.site.register(Magazine)
+admin.site.register(MagazineArticle)

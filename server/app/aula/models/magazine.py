@@ -1,16 +1,11 @@
-from django.core.validators import MinValueValidator, MaxValueValidator
-from .base_model import BaseModel
 from django.db import models
-
-from .article import Article
-
+from . import Article
+from .base_model import BaseModel
 
 class Magazine(BaseModel):
-
-    name = models.CharField( max_length=100, null=False, blank=False, help_text="...", verbose_name="Name")
-    edition = models.DateField(verbose_name="Edition")
-    article = models.ManyToManyField(Article, verbose_name="Articles")
+    name = models.CharField(max_length=100, help_text="Digite o nome da revista", verbose_name="Nome da revista")
+    edition = models.IntegerField(help_text="Digite a edição", verbose_name="Edição")
+    # article = models.ManyToManyField(Article, null=True, blank=True, through="MagazineArticle", through_fields=("magazine","article"))
 
     def __str__(self):
-        articles = ", ".join(article.title for article in self.article.all())
-        return f'{self.name} | {articles}'
+        return self.name
